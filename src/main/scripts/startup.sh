@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-java -classpath "lib/*" com.symc.ri.Application
-
-
+java -server -classpath "lib/*" org.coderearth.kitchens.appstarter.Application
