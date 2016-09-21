@@ -30,7 +30,7 @@ public class Application {
     private static final String CONTEXT_PATH = "/";
     private static final String MAPPING_URL = "/*";
     private static String processId = null;
-    private static final String CONFIG_LOCATION = "com.symc.ri";
+    private static final String CONFIG_LOCATION = "org.coderearth.kitchens";
 
     public static void main(String[] args) {
         Stream.of(args).forEach(System.out::println);
