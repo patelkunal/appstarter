@@ -18,7 +18,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 /**
  * Created by kunal_patel on 9/21/16.
@@ -33,7 +32,8 @@ public class Application {
     private static final String CONFIG_LOCATION = "org.coderearth.kitchens";
 
     public static void main(String[] args) {
-        Stream.of(args).forEach(System.out::println);
+        LOGGER.info("{}={}", "message", System.getProperty("message"));
+        LOGGER.info("{}={}", "extra.args", System.getProperty("extra.args"));
         try {
             new Application().run();
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class Application {
     }
 
     public void run() throws Exception {
-        if(System.getProperty("pid.file") != null) {
+        if (System.getProperty("pid.file") != null) {
             String processName = ManagementFactory.getRuntimeMXBean().getName();
             processId = processName.split("@")[0];
             BufferedWriter pidWriter = Files.newBufferedWriter(Paths.get(System.getProperty("pid.file"), new String[0]), StandardCharsets.UTF_8, new OpenOption[0]);
